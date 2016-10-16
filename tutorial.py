@@ -7,7 +7,7 @@ import essentia.standard
 import essentia.streaming
 
 # pylab contains the plot() function, as well as figure, etc... (same names as Matlab)
-from pylab import plot, show, figure
+from pylab import plot, show, figure, imshow
 
 # let's have a look at what is in there
 
@@ -31,6 +31,10 @@ loader = essentia.standard.MonoLoader(filename='sample/cannon.mp3')
 audio = loader()
 
 # by default, the MonoLoader will output audio with 44100Hz samplerate
+
+w = essentia.standard.Windowing(type = 'hann')
+spectrum = essentia.standard.Spectrum()  # FFT() would return the complex FFT, here we just want the magnitude spectrum
+mfcc = essentia.standard.MFCC()
 
 mfccs = []
 
