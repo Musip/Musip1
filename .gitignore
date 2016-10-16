@@ -1,6 +1,3 @@
-# .gitignore for cse331 staff
-# (Probably best not to put much of anything here except for obvious ones)
-
 # emacs backup files
 *~
 
