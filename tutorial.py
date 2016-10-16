@@ -1,7 +1,5 @@
 # first, we need to import our essentia module. It is aptly named 'essentia'!
 
-import essentia
-
 # as there are 2 operating modes in essentia which have the same algorithms,
 # these latter are dispatched into 2 submodules:
 
@@ -34,5 +32,16 @@ audio = loader()
 
 # by default, the MonoLoader will output audio with 44100Hz samplerate
 
-plot(audio[2*44100:3*44100])
+mfccs = []
+
+for frame in essentia.standard.FrameGenerator(audio, frameSize = 1024, hopSize = 512):
+    mfcc_bands, mfcc_coeffs = mfcc(spectrum(w(frame)))
+    mfccs.append(mfcc_coeffs)
+
+# transpose to have it in a better shape
+# we need to convert the list to an essentia.array first (== numpy.array of floats)
+mfccs = essentia.array(mfccs).T
+
+# and plot
+imshow(mfccs[1:,:], aspect = 'auto')
 show() # unnecessary if you started "ipython --pylab"
