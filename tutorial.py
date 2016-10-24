@@ -8,6 +8,7 @@ import essentia.streaming
 
 # pylab contains the plot() function, as well as figure, etc... (same names as Matlab)
 from pylab import plot, show, figure, imshow
+import matplotlib.pyplot as plt
 
 # let's have a look at what is in there
 
@@ -25,27 +26,44 @@ from pylab import plot, show, figure, imshow
 #
 
 # we start by instantiating the audio loader:
-loader = essentia.standard.MonoLoader(filename='sample/cannon.mp3')
+loader = essentia.standard.MonoLoader(filename='sample/two_tigers_sample.mp3')
 
 # and then we actually perform the loading:
 audio = loader()
+# audio = audio[1*44100:10*44100]
 
 # by default, the MonoLoader will output audio with 44100Hz samplerate
 
-w = essentia.standard.Windowing(type = 'hann')
+window = essentia.standard.Windowing(type = 'hann')
 spectrum = essentia.standard.Spectrum()  # FFT() would return the complex FFT, here we just want the magnitude spectrum
-mfcc = essentia.standard.MFCC()
+pitch_yin_fft = essentia.standard.PitchYinFFT()
 
-mfccs = []
+# help(essentia.standard.FFT)
+index = 0
+pitches = []
 
-for frame in essentia.standard.FrameGenerator(audio, frameSize = 1024, hopSize = 512):
-    mfcc_bands, mfcc_coeffs = mfcc(spectrum(w(frame)))
-    mfccs.append(mfcc_coeffs)
+for frame in essentia.standard.FrameGenerator(audio, frameSize = 2048, hopSize = 512):
+	# mfcc_bands, mfcc_coeffs = mfcc(spectrum(window(frame)))
+	# mfccs.append(mfcc_coeffs)
+	pitch, pitch_confidence = pitch_yin_fft(spectrum(window(frame)))
+	
+	if pitch < 800:
+		pitches.append(pitch)
+
+	index = index + 1
+
+plt.plot(pitches)
+plt.show()
 
 # transpose to have it in a better shape
 # we need to convert the list to an essentia.array first (== numpy.array of floats)
-mfccs = essentia.array(mfccs).T
+
+# mfccs = essentia.array(mfccs).T
 
 # and plot
-imshow(mfccs[1:,:], aspect = 'auto')
-show() # unnecessary if you started "ipython --pylab"
+# imshow(mfccs[1:,:], aspect = 'auto')
+
+# show() # unnecessary if you started "ipython --pylab"
+
+
+
