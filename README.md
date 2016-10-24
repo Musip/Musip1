@@ -2,4 +2,11 @@ Musip
 
 Set-Up
 https://github.com/MTG/essentia
-May have some issues
+
+You might need to install ipython to run the program
+
+To install ipython
+sudo pip install --user ipython
+
+To run program
+python -m IPython <filename>
