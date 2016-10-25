@@ -1,3 +1,5 @@
+*.pyc
+
 # emacs backup files
 *~
 
