@@ -26,7 +26,7 @@ def draw_plot(frames, window, spectrum, pitch_yin_fft, pitch_saliennce):
 	plt.plot(range(len(pitches)), pitches, label='pitch')
 	plt.show()
 
-def sequence_alignment(array1, array2, padding):
+def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 	height = len(array1)
 	width = len(array2)
 	result_matrix = [[0 for x in range(width)] for y in range(height)]
@@ -38,12 +38,13 @@ def sequence_alignment(array1, array2, padding):
 	for j in range(width):
 		result_matrix[j][0] = j;
 
+	# dp
 	for i in range(height):
 		for j in range(width):
-			match = 0 if abs(array1[i] - array2[j]) <= padding else 1
+			match = 0 if abs(array1[i] - array2[j]) <= padding else mismatch_penalty
 			match_cost = match + result_matrix[i-1][j-1]
-			gap1 = 1 + result_matrix[i][j-1]
-			gap2 = 1 + result_matrix[i-1][j]
+			gap1 = gap_penalty + result_matrix[i][j-1]
+			gap2 = gap_penalty + result_matrix[i-1][j]
 			min_cost = min(match_cost, gap1, gap2)
 			result_matrix[i][j] = min_cost
 			if min_cost == match_cost:
@@ -58,6 +59,7 @@ def sequence_alignment(array1, array2, padding):
 	current_i = current[0]
 	current_j = current[1]
 
+	# backtrack
 	while current_i != -1 and current_j != -1:
 		x = current[0]
 		y = current[1]
@@ -83,7 +85,7 @@ def sequence_alignment(array1, array2, padding):
 
 	diff = current_i - current_j
 	if diff == 0:
-		match = 0 if abs(rray1[0] - array2[0]) < padding else 1
+		match = 0 if abs(array1[0] - array2[0]) < padding else 1
 		match_result.append(match)
 	elif diff > 0:
 		match = 0 if abs(array1[diff] - array2[0]) < padding else 1
@@ -100,9 +102,7 @@ def sequence_alignment(array1, array2, padding):
 
 	match_result.reverse()
 
-	return result_matrix[height-1][width-1]
-
-sequence_alignment([2,4,1,2,2,3],[4,1,2,1,4,3], 0.1)
+	return (result_matrix[height-1][width-1], match_result)
 
 
 
