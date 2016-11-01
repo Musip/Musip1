@@ -193,7 +193,7 @@
 				TargetAttributes = {
 					F8B72DF31DC843DA00AD18D3 = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					F8B72E071DC843DA00AD18D3 = {
 						CreatedOnToolsVersion = 8.1;
@@ -412,6 +412,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zhexin.Recorder;
@@ -424,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Recorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Zhexin.Recorder;
@@ -505,6 +507,7 @@
 				F8B72E1E1DC843DA00AD18D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8B72E1F1DC843DA00AD18D3 /* Build configuration list for PBXNativeTarget "RecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +516,7 @@
 				F8B72E211DC843DA00AD18D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8B72E221DC843DA00AD18D3 /* Build configuration list for PBXNativeTarget "RecorderUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +525,7 @@
 				F8B72E241DC843DA00AD18D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
