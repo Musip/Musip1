@@ -1,17 +1,18 @@
-Musip
+# Musip
+######
 
-Set-Up
+### Set-Up
 https://github.com/MTG/essentia
 
 You might need to install ipython to run the program
 
-To install ipython
+### To install ipython
 sudo pip install --user ipython
 
-To run a file
+### To run a file
 python -m IPython <filename>
 
-To solve warnings (Matplotlib is building the font cache using fc-list. This may take a moment.)
+#### To solve warnings (Matplotlib is building the font cache using fc-list. This may take a moment.)
 cd ~/.cache/matplotlib/
 rm fontList.cache
 
