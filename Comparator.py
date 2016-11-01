@@ -1,9 +1,8 @@
 import matplotlib.pyplot as plt
 
-def draw_plot(frames, window, spectrum, pitch_yin_fft, pitch_saliennce):
+def draw_plot(frames, window, spectrum, pitch_yin_fft):
 	# index = 0
 	pitches = []
-	tones = []
 
 	# Extract pitches for each frame
 	for frame in frames:
@@ -32,10 +31,10 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 	result_matrix = [[0 for x in range(width)] for y in range(height)]
 	previous = [[(0, 0) for x in range(width)] for y in range(height)]
 
-	for i in range(height):
+	for i in range(width):
 		result_matrix[0][i] = i;
 
-	for j in range(width):
+	for j in range(height):
 		result_matrix[j][0] = j;
 
 	# dp
@@ -83,6 +82,7 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 		current_j = prev_j
 		current = prev
 
+	# calculate the gap left
 	diff = current_i - current_j
 	if diff == 0:
 		match = 0 if abs(array1[0] - array2[0]) < padding else 1
@@ -104,7 +104,66 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 
 	return (result_matrix[height-1][width-1], match_result)
 
+def compare(source_frames, destination_frames, window, spectrum, pitch_yin_fft, \
+	        padding, gap_penalty, mismatch_penalty, display):
+	confidence_level = 0.3
+	source_pitches = []
+	destination_pitches = []
 
+	# Extract pitches for each frame
+	for source_frame in source_frames:
+		source_spectrum = spectrum(window(source_frame))
+		source_pitch, source_pitch_confidence = pitch_yin_fft(source_spectrum)
+
+		if source_pitch_confidence < confidence_level:
+			source_pitches.append(0.0)
+		else:
+			source_pitches.append(source_pitch)
+
+	for destination_frame in destination_frames:
+		destination_spectrum = spectrum(window(destination_frame))
+		destination_pitch, destination_pitch_confidence = pitch_yin_fft(destination_spectrum)
+
+		if destination_pitch_confidence < confidence_level:
+			destination_pitches.append(0.0)
+		else:
+			destination_pitches.append(destination_pitch)
+
+	min_cost, match_result = sequence_alignment(source_pitches, destination_pitches, padding, \
+		                                        gap_penalty, mismatch_penalty)
+
+	if display:
+		display_result(source_pitches, destination_pitches, match_result)
+
+	return (min_cost, match_result)
+
+def display_result(source_pitches, destination_pitches, match_result):
+	source_display = []
+	destination_display = []
+
+	source_index = 0
+	destination_index = 0
+
+	for match in match_result:
+		if match == 0 or match == 1:
+			source_display.append(source_pitches[source_index])
+			destination_display.append(destination_pitches[destination_index])
+			source_index = source_index + 1
+			destination_index = destination_index + 1
+		elif match == 2:
+			source_display.append(0.0)
+			destination_display.append(destination_pitches[destination_index])
+			destination_index = destination_index + 1
+		elif match == 3:
+			destination_display.append(0.0)
+			source_display.append(source_pitches[source_index])
+			source_index = source_index + 1
+		else:
+			print "match result shouldn't contain {}.".format(match)
+
+	plt.plot(range(len(source_display)), source_display, label='source_pitch')
+	plt.plot(range(len(destination_display)), destination_display, label='destination_pitch')
+	plt.show()
 
 
 

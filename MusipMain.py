@@ -4,7 +4,7 @@ Spectrum, PitchYinFFT, PitchSalience
 import essentia.streaming
 import argparse
 
-from Comparator import draw_plot
+from Comparator import draw_plot, compare
 
 def _set_arguments():
 	parser = argparse.ArgumentParser()
@@ -30,6 +30,7 @@ def _loader(path):
 
 def main():
 	args = _set_arguments()
+	display_result = True
 
 	source_audio = _loader(args.source)
 	destination_audio = _loader(args.destination)
@@ -42,7 +43,9 @@ def main():
 	pitch_yin_fft = PitchYinFFT() # pitch extractor
 	pitch_saliennce = PitchSalience()
 
-	draw_plot(source_frame, window, spectrum, pitch_yin_fft, pitch_saliennce)
+	# draw_plot(source_frame, window, spectrum, pitch_yin_fft)
+	min_cost, match_result = compare(source_frame, destination_frame, window, \
+		                             spectrum, pitch_yin_fft, 10, 1, 1, display_result)
 
 if __name__ == '__main__':
 	main()
