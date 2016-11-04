@@ -18,10 +18,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var player : AVAudioPlayer!
     var fileName = "audioFile.m4a"
     
+    var testInstance : Test = Test()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpRecoeder()
+        //testInstance.someMethod()
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +57,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     func getFileUrl() -> URL {
         let path = getCacheDirectory().appendingPathComponent(fileName)
-        
+
         return path
     }
     

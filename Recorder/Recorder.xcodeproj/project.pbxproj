@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F84E9A131DC9531E003906F2 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = F84E9A121DC9531E003906F2 /* Test.m */; };
+		F84E9A191DCA4BFC003906F2 /* libpython2.7.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F84E9A181DCA4BFC003906F2 /* libpython2.7.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F8B72DF81DC843DA00AD18D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B72DF71DC843DA00AD18D3 /* AppDelegate.swift */; };
 		F8B72DFA1DC843DA00AD18D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B72DF91DC843DA00AD18D3 /* ViewController.swift */; };
 		F8B72DFD1DC843DA00AD18D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B72DFB1DC843DA00AD18D3 /* Main.storyboard */; };
@@ -34,9 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F84E9A111DC9531E003906F2 /* Recorder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Recorder-Bridging-Header.h"; sourceTree = "<group>"; };
+		F84E9A121DC9531E003906F2 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		F84E9A141DC953ED003906F2 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		F84E9A181DCA4BFC003906F2 /* libpython2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython2.7.dylib; path = ../../../../../../usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib; sourceTree = "<group>"; };
 		F8B72DF41DC843DA00AD18D3 /* Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B72DF71DC843DA00AD18D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8B72DF91DC843DA00AD18D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8B72DF91DC843DA00AD18D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; };
 		F8B72DFC1DC843DA00AD18D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8B72DFE1DC843DA00AD18D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B72E011DC843DA00AD18D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84E9A191DCA4BFC003906F2 /* libpython2.7.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +81,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F84E9A171DCA4BFC003906F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F84E9A181DCA4BFC003906F2 /* libpython2.7.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F8B72DEB1DC843DA00AD18D3 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +96,7 @@
 				F8B72E0B1DC843DA00AD18D3 /* RecorderTests */,
 				F8B72E161DC843DA00AD18D3 /* RecorderUITests */,
 				F8B72DF51DC843DA00AD18D3 /* Products */,
+				F84E9A171DCA4BFC003906F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +119,9 @@
 				F8B72DFE1DC843DA00AD18D3 /* Assets.xcassets */,
 				F8B72E001DC843DA00AD18D3 /* LaunchScreen.storyboard */,
 				F8B72E031DC843DA00AD18D3 /* Info.plist */,
+				F84E9A121DC9531E003906F2 /* Test.m */,
+				F84E9A111DC9531E003906F2 /* Recorder-Bridging-Header.h */,
+				F84E9A141DC953ED003906F2 /* Test.h */,
 			);
 			path = Recorder;
 			sourceTree = "<group>";
@@ -193,6 +212,7 @@
 				TargetAttributes = {
 					F8B72DF31DC843DA00AD18D3 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Manual;
 					};
 					F8B72E071DC843DA00AD18D3 = {
@@ -259,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84E9A131DC9531E003906F2 /* Test.m in Sources */,
 				F8B72DFA1DC843DA00AD18D3 /* ViewController.swift in Sources */,
 				F8B72DF81DC843DA00AD18D3 /* AppDelegate.swift in Sources */,
 			);
@@ -318,7 +339,7 @@
 		F8B72E1A1DC843DA00AD18D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -355,20 +376,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7/**";
 			};
 			name = Debug;
 		};
 		F8B72E1B1DC843DA00AD18D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -399,11 +423,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INCLUDE_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7/**";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -411,26 +438,53 @@
 		F8B72E1D1DC843DA00AD18D3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = Recorder/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zhexin.Recorder;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib,
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recorder/Recorder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		F8B72E1E1DC843DA00AD18D3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/include/python2.7;
 				INFOPLIST_FILE = Recorder/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Zhexin.Recorder;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks /usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib";
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/python/2.7.12_2/Frameworks/Python.framework/Versions/2.7/lib,
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				MACH_O_TYPE = mh_execute;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Recorder/Recorder-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
