@@ -102,7 +102,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     
     @IBAction func uploadAudio(_ sender: UIButton) {
         let destURL = NSURL(string: "http://www.iamhaomingliu.com"); // change later
-        let filePathURL = NSURL(fileURLWithPath: fileName)
+        // let filePathURL = NSURL(fileURLWithPath: fileName)
         
         let request = NSMutableURLRequest(url:destURL! as URL);
         request.httpMethod = "POST";
@@ -118,15 +118,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
         
-        let audioData = NSData(contentsOf: filePathURL as URL)
+        let audioData = NSData(contentsOf : getFileUrl())
         
         if(audioData == nil) {
             return;
         }
         
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", audioDataKey: audioData!, boundary: boundary) as Data
-        
-        
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
