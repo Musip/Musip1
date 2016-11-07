@@ -505,6 +505,7 @@
 				7A82495F1DCD2AA4005733A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A8249601DCD2AA4005733A4 /* Build configuration list for PBXNativeTarget "Musip_RecorderTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +514,7 @@
 				7A8249621DCD2AA4005733A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7A8249631DCD2AA4005733A4 /* Build configuration list for PBXNativeTarget "Musip_RecorderUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +523,7 @@
 				7A8249651DCD2AA4005733A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

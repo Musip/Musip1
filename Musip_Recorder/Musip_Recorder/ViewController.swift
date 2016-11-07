@@ -101,7 +101,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     @IBAction func uploadAudio(_ sender: UIButton) {
-        let destURL = NSURL(string: "http://www.iamhaomingliu.com"); // change later
+        let destURL = NSURL(string: "http://localhost:8000/cgi-bin/audio_receiver.py"); // change later
         // let filePathURL = NSURL(fileURLWithPath: fileName)
         
         let request = NSMutableURLRequest(url:destURL! as URL);
