@@ -142,6 +142,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             print("****** response data = \(responseString!)")
             
             do {
+                // use the data later
                 _ = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
             } catch {
                 print(error)

@@ -32,8 +32,16 @@ def main():
 	args = _set_arguments()
 	display_result = True
 
-	source_audio = _loader(args.source)
-	destination_audio = _loader(args.destination)
+	min_cost, match_result = shared_main(args.source, args.destination, display_result)
+	return match_result
+
+def main_for_server(source, destination):
+	min_cost, match_result = shared_main(source, destination)
+	return match_result
+
+def shared_main(source, dest, display_result):
+	source_audio = _loader(source)
+	destination_audio = _loader(dest)
 
 	source_frame = FrameGenerator(source_audio, frameSize = 2048, hopSize = 512)
 	destination_frame = FrameGenerator(destination_audio, frameSize = 2048, hopSize = 512)
@@ -46,6 +54,8 @@ def main():
 	# draw_plot(source_frame, window, spectrum, pitch_yin_fft)
 	min_cost, match_result = compare(source_frame, destination_frame, window, \
 		                             spectrum, pitch_yin_fft, 10, 1, 1, display_result)
+
+	return min_cost, match_result
 
 if __name__ == '__main__':
 	main()
