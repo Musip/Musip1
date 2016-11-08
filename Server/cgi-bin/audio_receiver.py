@@ -4,13 +4,12 @@ import json
 import logging
 import os
 import shutil
-
+from MusipMain import main_for_server
 
 print "Content-type: text/html"
 print ""
 
 UPLOAD_DIR = "./uploads"
-MAIN_SCRIPT = 'python ~/Documents/Github/Musip1.0/MusipMain.py -s ./uploads/testfile.m4a -d ./uploads/testfile.m4a'
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -28,10 +27,12 @@ if form.getvalue('file'):
 	with open(outpath, 'wb') as fout:
 		shutil.copyfileobj(audio_file.file, fout, 100000)
 
-	os.system(MAIN_SCRIPT)
+	match_result = main_for_server('./uploads/testfile.m4a', './uploads/testfile.m4a')
+	logging.debug(match_result)
 	result = dict()
-	result["status"] = 0
+	result["matches"] = match_result
 	print json.dumps(result)
+	logging.debug(json.dumps(result))
 	logging.debug('success')
 else:
 	logging.warning('Do not receive the uploaded file')

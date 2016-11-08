@@ -36,7 +36,7 @@ def main():
 	return match_result
 
 def main_for_server(source, destination):
-	min_cost, match_result = shared_main(source, destination)
+	min_cost, match_result = shared_main(source, destination, True)
 	return match_result
 
 def shared_main(source, dest, display_result):
