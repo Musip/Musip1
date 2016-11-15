@@ -79,7 +79,7 @@
     self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
     self.audioPlot.plotType        = EZPlotTypeBuffer;
     self.audioPlot.shouldFill      = YES;
-    self.audioPlot.shouldMirror    = YES;
+    self.audioPlot.shouldMirror    = NO;
     
     NSLog(@"outputs: %@", [EZAudioDevice outputDevices]);
     
@@ -87,7 +87,7 @@
     // Create the audio player
     //
     self.player = [EZAudioPlayer audioPlayerWithDelegate:self];
-    self.player.shouldLoop = YES;
+    self.player.shouldLoop = NO;
     
     //
     // Override the output to the speaker
