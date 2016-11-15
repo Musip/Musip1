@@ -14,6 +14,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet var RecordButton: UIButton!
     @IBOutlet var PlayButton: UIButton!
     @IBOutlet weak var UploadButton: UIButton!
+    @IBOutlet weak var PauseButton: UIButton!
     
     var recorder : AVAudioRecorder!
     var player : AVAudioPlayer!
@@ -78,6 +79,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             RecordButton.isEnabled = false
         } else {
             player.stop()
+            player.currentTime = 0
             sender.setTitle("Play", for: .normal)
             RecordButton.isEnabled = true
         }
@@ -92,6 +94,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             recorder.stop()
             sender.setTitle("Record", for: .normal)
             PlayButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func Pause(_ sender: UIButton) {
+        if player.isPlaying == true {
+            player.stop()
+            sender.setTitle("Resume", for: .normal)
+        } else {
+            player.play()
+            sender.setTitle("Pause", for: .normal)
         }
     }
     
