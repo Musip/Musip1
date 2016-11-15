@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import AudioKit
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
@@ -18,6 +19,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var recorder : AVAudioRecorder!
     var player : AVAudioPlayer!
     var fileName = "audioFile.m4a"
+    var osi = AKOscillator()
     
     override func viewDidLoad() {
         super.viewDidLoad()

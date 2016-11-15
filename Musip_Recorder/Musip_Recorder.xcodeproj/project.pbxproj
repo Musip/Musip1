@@ -14,6 +14,8 @@
 		7A8249431DCD2AA4005733A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8249411DCD2AA4005733A4 /* LaunchScreen.storyboard */; };
 		7A82494E1DCD2AA4005733A4 /* Musip_RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82494D1DCD2AA4005733A4 /* Musip_RecorderTests.swift */; };
 		7A8249591DCD2AA4005733A4 /* Musip_RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */; };
+		F8B248711DDA61C30005E0FE /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B248701DDA61C30005E0FE /* AudioKit.framework */; };
+		F8B248721DDA61C30005E0FE /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8B248701DDA61C30005E0FE /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F8B248731DDA61C30005E0FE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8B248721DDA61C30005E0FE /* AudioKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7A8249351DCD2AA4005733A4 /* Musip_Recorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musip_Recorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8249381DCD2AA4005733A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +63,7 @@
 		7A8249541DCD2AA4005733A4 /* Musip_RecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Musip_RecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musip_RecorderUITests.swift; sourceTree = "<group>"; };
 		7A82495A1DCD2AA4005733A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8B248701DDA61C30005E0FE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8B248711DDA61C30005E0FE /* AudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +95,7 @@
 		7A82492C1DCD2AA4005733A4 = {
 			isa = PBXGroup;
 			children = (
+				F8B248701DDA61C30005E0FE /* AudioKit.framework */,
 				7A8249371DCD2AA4005733A4 /* Musip_Recorder */,
 				7A82494C1DCD2AA4005733A4 /* Musip_RecorderTests */,
 				7A8249571DCD2AA4005733A4 /* Musip_RecorderUITests */,
@@ -135,6 +154,7 @@
 				7A8249311DCD2AA4005733A4 /* Sources */,
 				7A8249321DCD2AA4005733A4 /* Frameworks */,
 				7A8249331DCD2AA4005733A4 /* Resources */,
+				F8B248731DDA61C30005E0FE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -412,6 +432,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Musip_Recorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "haomingl.Musip-Recorder";
@@ -424,6 +448,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Musip_Recorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "haomingl.Musip-Recorder";
