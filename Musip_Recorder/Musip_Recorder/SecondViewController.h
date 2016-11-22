@@ -79,6 +79,8 @@
 //
 @property (nonatomic, weak) IBOutlet UISlider *volumeSlider;
 
+@property (nonatomic) NSArray *match;
+
 //------------------------------------------------------------------------------
 #pragma mark - Actions
 //------------------------------------------------------------------------------

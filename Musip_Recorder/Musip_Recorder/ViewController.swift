@@ -21,6 +21,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var player : AVAudioPlayer!
     var fileName = "audioFile.m4a"
     var osi = AKOscillator()
+    var dataToPass = [1, 0, 0, 0, 0, 1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueTest") {
+            let something:SecondViewController = segue.destination as! SecondViewController
+            something.match = dataToPass
+        }
     }
     
     func setUpRecoeder() {

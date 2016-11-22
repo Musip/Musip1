@@ -58,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show"/>
                                 <connections>
-                                    <segue destination="ZU5-QB-Nka" kind="show" id="F2H-pE-0r7"/>
+                                    <segue destination="ZU5-QB-Nka" kind="show" identifier="segueTest" id="F2H-pE-0r7"/>
                                 </connections>
                             </button>
                         </subviews>
