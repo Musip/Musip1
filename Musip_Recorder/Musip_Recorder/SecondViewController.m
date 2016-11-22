@@ -12,6 +12,10 @@
 
 @implementation SecondViewController
 
+NSTimer *timer;
+
+NSArray *match;
+
 //------------------------------------------------------------------------------
 #pragma mark - Dealloc
 //------------------------------------------------------------------------------
@@ -58,13 +62,15 @@
     //
     // Customizing the audio plot's look
     //
-    self.audioPlot.backgroundColor = [UIColor colorWithRed: 0.816 green: 0.349 blue: 0.255 alpha: 1];
-    self.audioPlot.color           = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+    self.audioPlot.backgroundColor = [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1];
+    self.audioPlot.color           = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:1.0];
     self.audioPlot.plotType        = EZPlotTypeBuffer;
     self.audioPlot.shouldFill      = YES;
     self.audioPlot.shouldMirror    = NO;
     
     NSLog(@"outputs: %@", [EZAudioDevice outputDevices]);
+    
+    match = @[@1, @0, @1, @0, @1, @1];
     
     //
     // Create the audio player
@@ -217,18 +223,32 @@
 
 - (void)play:(id)sender
 {
+    [timer invalidate];
     if ([self.player isPlaying])
     {
         [self.player pause];
     }
     else
     {
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(compareResult) userInfo:nil repeats:YES];
         if (self.audioPlot.shouldMirror && (self.audioPlot.plotType == EZPlotTypeBuffer))
         {
             self.audioPlot.shouldMirror = NO;
             self.audioPlot.shouldFill = NO;
         }
         [self.player play];
+    }
+}
+
+- (void)compareResult {
+    int sliderValue = self.positionSlider.value;
+    int maxValue = self.positionSlider.maximumValue;
+    int index = floor(6.0 * sliderValue / maxValue);
+    NSLog(@"%i, slider value: %i, max value: %i", index, sliderValue, maxValue);
+    if ([match[index]  isEqual: @0]) {
+        self.audioPlot.color = [UIColor colorWithRed: 1.0 green: 0.0 blue: 0.0 alpha: 1];
+    } else {
+        self.audioPlot.color = [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1];
     }
 }
 
