@@ -11,9 +11,12 @@
 		7A82493B1DCD2AA4005733A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82493A1DCD2AA4005733A4 /* ViewController.swift */; };
 		7A82493E1DCD2AA4005733A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A82493C1DCD2AA4005733A4 /* Main.storyboard */; };
 		7A8249401DCD2AA4005733A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A82493F1DCD2AA4005733A4 /* Assets.xcassets */; };
-		7A8249431DCD2AA4005733A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8249411DCD2AA4005733A4 /* LaunchScreen.storyboard */; };
 		7A82494E1DCD2AA4005733A4 /* Musip_RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82494D1DCD2AA4005733A4 /* Musip_RecorderTests.swift */; };
 		7A8249591DCD2AA4005733A4 /* Musip_RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */; };
+		F80B4FDC1DE406DB0025E0A7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */; };
+		F80B4FE91DE408760025E0A7 /* EZAudio in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FE81DE408760025E0A7 /* EZAudio */; };
+		F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FF21DE409FD0025E0A7 /* EZAudioiOS.framework */; };
+		F80B4FF51DE411970025E0A7 /* hill_sample_perfect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FF41DE411970025E0A7 /* hill_sample_perfect.mp3 */; };
 		F8B248711DDA61C30005E0FE /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B248701DDA61C30005E0FE /* AudioKit.framework */; };
 		F8B248721DDA61C30005E0FE /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8B248701DDA61C30005E0FE /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -55,7 +58,6 @@
 		7A82493A1DCD2AA4005733A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A82493D1DCD2AA4005733A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A82493F1DCD2AA4005733A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A8249421DCD2AA4005733A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A8249441DCD2AA4005733A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A8249491DCD2AA4005733A4 /* Musip_RecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Musip_RecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A82494D1DCD2AA4005733A4 /* Musip_RecorderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musip_RecorderTests.swift; sourceTree = "<group>"; };
@@ -63,7 +65,13 @@
 		7A8249541DCD2AA4005733A4 /* Musip_RecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Musip_RecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musip_RecorderUITests.swift; sourceTree = "<group>"; };
 		7A82495A1DCD2AA4005733A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		F80B4FDD1DE407250025E0A7 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		F80B4FE81DE408760025E0A7 /* EZAudio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EZAudio; sourceTree = "<group>"; };
+		F80B4FF21DE409FD0025E0A7 /* EZAudioiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EZAudioiOS.framework; sourceTree = "<group>"; };
+		F80B4FF41DE411970025E0A7 /* hill_sample_perfect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hill_sample_perfect.mp3; sourceTree = "<group>"; };
 		F8B248701DDA61C30005E0FE /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		F8B248C91DDA94CA0005E0FE /* Musip_Recorder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Musip_Recorder-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +103,8 @@
 		7A82492C1DCD2AA4005733A4 = {
 			isa = PBXGroup;
 			children = (
+				F80B4FF21DE409FD0025E0A7 /* EZAudioiOS.framework */,
+				F80B4FE81DE408760025E0A7 /* EZAudio */,
 				F8B248701DDA61C30005E0FE /* AudioKit.framework */,
 				7A8249371DCD2AA4005733A4 /* Musip_Recorder */,
 				7A82494C1DCD2AA4005733A4 /* Musip_RecorderTests */,
@@ -116,12 +126,15 @@
 		7A8249371DCD2AA4005733A4 /* Musip_Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				F80B4FF41DE411970025E0A7 /* hill_sample_perfect.mp3 */,
 				7A8249381DCD2AA4005733A4 /* AppDelegate.swift */,
 				7A82493A1DCD2AA4005733A4 /* ViewController.swift */,
 				7A82493C1DCD2AA4005733A4 /* Main.storyboard */,
 				7A82493F1DCD2AA4005733A4 /* Assets.xcassets */,
-				7A8249411DCD2AA4005733A4 /* LaunchScreen.storyboard */,
 				7A8249441DCD2AA4005733A4 /* Info.plist */,
+				F8B248C91DDA94CA0005E0FE /* Musip_Recorder-Bridging-Header.h */,
+				F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */,
+				F80B4FDD1DE407250025E0A7 /* SecondViewController.h */,
 			);
 			path = Musip_Recorder;
 			sourceTree = "<group>";
@@ -213,6 +226,7 @@
 				TargetAttributes = {
 					7A8249341DCD2AA4005733A4 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					7A8249481DCD2AA4005733A4 = {
@@ -252,7 +266,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A8249431DCD2AA4005733A4 /* LaunchScreen.storyboard in Resources */,
+				F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */,
+				F80B4FF51DE411970025E0A7 /* hill_sample_perfect.mp3 in Resources */,
+				F80B4FE91DE408760025E0A7 /* EZAudio in Resources */,
 				7A8249401DCD2AA4005733A4 /* Assets.xcassets in Resources */,
 				7A82493E1DCD2AA4005733A4 /* Main.storyboard in Resources */,
 			);
@@ -279,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80B4FDC1DE406DB0025E0A7 /* SecondViewController.m in Sources */,
 				7A82493B1DCD2AA4005733A4 /* ViewController.swift in Sources */,
 				7A8249391DCD2AA4005733A4 /* AppDelegate.swift in Sources */,
 			);
@@ -322,14 +339,6 @@
 				7A82493D1DCD2AA4005733A4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7A8249411DCD2AA4005733A4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7A8249421DCD2AA4005733A4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -432,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -440,6 +450,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "haomingl.Musip-Recorder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Musip_Recorder/Musip_Recorder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -448,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -456,6 +469,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "haomingl.Musip-Recorder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Musip_Recorder/Musip_Recorder-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
