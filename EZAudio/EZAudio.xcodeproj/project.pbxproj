@@ -73,6 +73,7 @@
 		8A5A4BD21BBBDE2800A8A048 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = 469F4D1C1B749FEC00666A46 /* TPCircularBuffer.c */; };
 		8A5A4BF31BBBFFA000A8A048 /* EZAudioOSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A5A4BF11BBBFF5600A8A048 /* EZAudioOSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A5A4BF41BBC025600A8A048 /* EZAudioiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A5A4BEF1BBBFF0A00A8A048 /* EZAudioiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F80B4FEA1DE4091B0025E0A7 /* EZAudioiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 469F4CF31B749F7800666A46 /* EZAudioiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F80B4FEA1DE4091B0025E0A7 /* EZAudioiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +582,7 @@
 				8A5A4BAF1BBBDCB200A8A048 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
