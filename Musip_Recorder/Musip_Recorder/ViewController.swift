@@ -21,7 +21,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     var player : AVAudioPlayer!
     var fileName = "audioFile.m4a"
     var osi = AKOscillator()
-    var dataToPass = [1, 0, 0, 0, 0, 1]
+    var matchResult : [Int]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +35,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "segueTest") {
-            let something:SecondViewController = segue.destination as! SecondViewController
-            something.match = dataToPass
+        if (segue.identifier == "segueToDisplayer") {
+            let second:SecondViewController = segue.destination as! SecondViewController
+            second.match = matchResult
+            second.url = getFileUrl()
         }
     }
     
@@ -165,7 +166,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             
             do {
                 // use the data later
-                _ = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                self.matchResult = json?["matches"] as! [Int]
             } catch {
                 print(error)
             }

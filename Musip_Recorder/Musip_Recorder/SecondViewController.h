@@ -79,7 +79,15 @@
 //
 @property (nonatomic, weak) IBOutlet UISlider *volumeSlider;
 
+//
+// Match is an array passed from main view controller
+//
 @property (nonatomic) NSArray *match;
+
+//
+// The audio file name to be played
+//
+@property (nonatomic) NSURL *url;
 
 //------------------------------------------------------------------------------
 #pragma mark - Actions
