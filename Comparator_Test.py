@@ -6,7 +6,7 @@ class TestComparator(unittest.TestCase):
     	# typical test
         cost, match_result = sequence_alignment([2,4,1,2,2,3],[4,1,2,1,4,3], 0.1, 1, 1)
         self.assertEqual(3, cost)
-        self.assertSequenceEqual([3,0,0,0,1,2,0], match_result)
+        self.assertSequenceEqual([3,0,0,0,2,1,0], match_result)
 
         # edge test
         cost, match_result = sequence_alignment([1,2,3,4,5],[1,2,3,4,5], 0.1, 1, 1)
@@ -17,6 +17,14 @@ class TestComparator(unittest.TestCase):
         cost, match_result = sequence_alignment([1,2,3,4,5],[6,7,8,9,10], 0.1, 1, 1)
         self.assertEqual(5, cost)
         self.assertSequenceEqual([1,1,1,1,1], match_result)
+
+        cost, match_result = sequence_alignment([1,2,3,4,5],[3,4,5,6,7], 0.1, 1, 1)
+        self.assertEqual(4, cost)
+        self.assertSequenceEqual([3,3,0,0,0], match_result)
+
+        cost, match_result = sequence_alignment([3,4,5,6,7],[1,2,3,4,5], 0.1, 1, 1)
+        self.assertEqual(4, cost)
+        self.assertSequenceEqual([0,0,0,3,3], match_result)
 
 if __name__ == '__main__':
     unittest.main()

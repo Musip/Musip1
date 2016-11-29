@@ -243,9 +243,9 @@ NSTimer *timer;
     int index = floor(6.0 * sliderValue / maxValue);
     NSLog(@"%i, slider value: %i, max value: %i", index, sliderValue, maxValue);
     if ([self.match[index]  isEqual: @0]) {
-        self.audioPlot.color = [UIColor colorWithRed: 1.0 green: 0.0 blue: 0.0 alpha: 1];
-    } else {
         self.audioPlot.color = [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1];
+    } else {
+        self.audioPlot.color = [UIColor colorWithRed: 1.0 green: 0.0 blue: 0.0 alpha: 1];
     }
 }
 

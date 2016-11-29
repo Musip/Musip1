@@ -28,62 +28,66 @@ def draw_plot(frames, window, spectrum, pitch_yin_fft):
 def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 	height = len(array1)
 	width = len(array2)
-	result_matrix = [[0 for x in range(width)] for y in range(height)]
-	previous = [[(0, 0) for x in range(width)] for y in range(height)]
+	result_matrix = [[0 for x in range(width + 1)] for y in range(height + 1)]
+	previous = [[(0, 0) for x in range(width + 1)] for y in range(height + 1)]
 
-	for i in range(width):
+	for i in range(width+1):
 		result_matrix[0][i] = i;
 
-	for j in range(height):
-		result_matrix[j][0] = j;
+	for i in range(height+1):
+		result_matrix[i][0] = i;
 
 	# dp
 	for i in range(height):
 		for j in range(width):
 			match = 0 if abs(array1[i] - array2[j]) <= padding else mismatch_penalty
-			match_cost = match + result_matrix[i-1][j-1]
-			gap1 = gap_penalty + result_matrix[i][j-1]
-			gap2 = gap_penalty + result_matrix[i-1][j]
+			match_cost = match + result_matrix[i][j]
+			gap1 = gap_penalty + result_matrix[i+1][j]
+			gap2 = gap_penalty + result_matrix[i][j+1]
 			min_cost = min(match_cost, gap1, gap2)
-			result_matrix[i][j] = min_cost
+			result_matrix[i+1][j+1] = min_cost
 			if min_cost == match_cost:
-				previous[i][j] = (i-1, j-1)
+				previous[i+1][j+1] = (i, j)
 			elif min_cost == gap1:
-				previous[i][j] = (i, j-1)
+				previous[i+1][j+1] = (i+1, j)
 			else:
-				previous[i][j] = (i-1, j)
+				previous[i+1][j+1] = (i, j+1)
 
 	match_result = []
-	current = previous[height-1][width-1]
+	current = (height, width)
 	current_i = current[0]
 	current_j = current[1]
+	array1_index = len(array1) - 1
+	array2_index = len(array2) - 1
 
 	# backtrack
-	while current_i != -1 and current_j != -1:
-		x = current[0]
-		y = current[1]
-		prev = previous[x][y]
+	while array1_index != 0 and array2_index != 0:
+		prev = previous[current_i][current_j]
 		prev_i = prev[0]
 		prev_j = prev[1]
 
 		match = 0
 		if current_i - prev_i == 1 and current_j - prev_j == 1:
-			if abs(array1[x + 1] - array2[y + 1]) > padding:
+			if abs(array1[array1_index] - array2[array2_index]) > padding:
 				match = 1 # mismatch
+			array1_index = array1_index - 1
+			array2_index = array2_index - 1
 		elif current_i - prev_i == 1:
 			match = 3
+			array1_index = array1_index - 1
 		elif current_j - prev_j == 1:
 			match = 2
+			array2_index = array2_index - 1
 		else:
 			print "This should not happen."
 		match_result.append(match)
 
-		current_i = prev_i
-		current_j = prev_j
 		current = prev
+		current_i = current[0]
+		current_j = current[1]
 
 	# calculate the gap left
-	diff = current_i - current_j
+	diff = array1_index - array2_index
 	if diff == 0:
 		match = 0 if abs(array1[0] - array2[0]) < padding else 1
 		match_result.append(match)
@@ -102,11 +106,19 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 
 	match_result.reverse()
 
-	return (result_matrix[height-1][width-1], match_result)
+	start_index = 0
+	end_index = len(match_result) - 1
+	while start_index < len(match_result) and match_result[start_index] == 2:
+		start_index = start_index + 1
+
+	while end_index >= 0 and match_result[end_index] == 2:
+		end_index = end_index - 1
+
+	return (result_matrix[height][width], match_result[start_index:end_index + 1])
 
 def compare(source_frames, destination_frames, window, spectrum, pitch_yin_fft, \
 	        padding, gap_penalty, mismatch_penalty, display):
-	confidence_level = 0.3
+	confidence_level = 0.7
 	source_pitches = []
 	destination_pitches = []
 
