@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om0-38-zim">
-                                <rect key="frame" x="138" y="318" width="70" height="30"/>
+                                <rect key="frame" x="128" y="201" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lnx-uP-SmR">
-                                <rect key="frame" x="138" y="413" width="50" height="30"/>
+                                <rect key="frame" x="138" y="274" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload"/>
                                 <connections>
@@ -38,7 +38,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOi-EC-G75">
-                                <rect key="frame" x="220" y="318" width="71" height="30"/>
+                                <rect key="frame" x="217" y="201" width="71" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pause"/>
                                 <connections>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZE-8R-9aa">
-                                <rect key="frame" x="55" y="318" width="49" height="30"/>
+                                <rect key="frame" x="52" y="201" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Record"/>
                                 <connections>
@@ -54,13 +54,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gD2-or-Whk">
-                                <rect key="frame" x="144" y="511" width="38" height="30"/>
+                                <rect key="frame" x="144" y="352" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show"/>
                                 <connections>
                                     <segue destination="ZU5-QB-Nka" kind="show" identifier="segueToDisplayer" id="F2H-pE-0r7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCZ-Wq-wWl">
+                                <rect key="frame" x="111" y="432" width="104" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -69,12 +76,13 @@
                         <outlet property="PauseButton" destination="iOi-EC-G75" id="rbz-Up-Hna"/>
                         <outlet property="PlayButton" destination="om0-38-zim" id="qtv-2X-zub"/>
                         <outlet property="RecordButton" destination="lZE-8R-9aa" id="gHq-6D-YYg"/>
+                        <outlet property="ScoreLabel" destination="pCZ-Wq-wWl" id="q0e-w8-kcZ"/>
                         <outlet property="UploadButton" destination="Lnx-uP-SmR" id="LWQ-21-Ol8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="37"/>
+            <point key="canvasLocation" x="748" y="36.431784107946029"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="aik-Yd-chP">

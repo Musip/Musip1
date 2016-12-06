@@ -13,6 +13,10 @@
 		7A8249401DCD2AA4005733A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A82493F1DCD2AA4005733A4 /* Assets.xcassets */; };
 		7A82494E1DCD2AA4005733A4 /* Musip_RecorderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A82494D1DCD2AA4005733A4 /* Musip_RecorderTests.swift */; };
 		7A8249591DCD2AA4005733A4 /* Musip_RecorderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */; };
+		7AE346E61DF67239001B3D5F /* Joy_Add_One.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346E21DF66D5D001B3D5F /* Joy_Add_One.m4a */; };
+		7AE346E71DF67239001B3D5F /* Joy_Mismatch.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346E31DF66D73001B3D5F /* Joy_Mismatch.m4a */; };
+		7AE346E81DF67239001B3D5F /* Joy_Miss_One.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346E41DF66D73001B3D5F /* Joy_Miss_One.m4a */; };
+		7AE346E91DF67239001B3D5F /* Joy_Sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346E51DF66D73001B3D5F /* Joy_Sample.m4a */; };
 		F80B4FDC1DE406DB0025E0A7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */; };
 		F80B4FE91DE408760025E0A7 /* EZAudio in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FE81DE408760025E0A7 /* EZAudio */; };
 		F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FF21DE409FD0025E0A7 /* EZAudioiOS.framework */; };
@@ -65,6 +69,10 @@
 		7A8249541DCD2AA4005733A4 /* Musip_RecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Musip_RecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A8249581DCD2AA4005733A4 /* Musip_RecorderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musip_RecorderUITests.swift; sourceTree = "<group>"; };
 		7A82495A1DCD2AA4005733A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AE346E21DF66D5D001B3D5F /* Joy_Add_One.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Add_One.m4a; sourceTree = "<group>"; };
+		7AE346E31DF66D73001B3D5F /* Joy_Mismatch.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Mismatch.m4a; sourceTree = "<group>"; };
+		7AE346E41DF66D73001B3D5F /* Joy_Miss_One.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Miss_One.m4a; sourceTree = "<group>"; };
+		7AE346E51DF66D73001B3D5F /* Joy_Sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Sample.m4a; sourceTree = "<group>"; };
 		F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		F80B4FDD1DE407250025E0A7 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		F80B4FE81DE408760025E0A7 /* EZAudio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EZAudio; sourceTree = "<group>"; };
@@ -127,6 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				F80B4FF41DE411970025E0A7 /* hill_sample_perfect.mp3 */,
+				7AE346E21DF66D5D001B3D5F /* Joy_Add_One.m4a */,
+				7AE346E31DF66D73001B3D5F /* Joy_Mismatch.m4a */,
+				7AE346E41DF66D73001B3D5F /* Joy_Miss_One.m4a */,
+				7AE346E51DF66D73001B3D5F /* Joy_Sample.m4a */,
 				7A8249381DCD2AA4005733A4 /* AppDelegate.swift */,
 				7A82493A1DCD2AA4005733A4 /* ViewController.swift */,
 				7A82493C1DCD2AA4005733A4 /* Main.storyboard */,
@@ -266,6 +278,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE346E61DF67239001B3D5F /* Joy_Add_One.m4a in Resources */,
+				7AE346E71DF67239001B3D5F /* Joy_Mismatch.m4a in Resources */,
+				7AE346E81DF67239001B3D5F /* Joy_Miss_One.m4a in Resources */,
+				7AE346E91DF67239001B3D5F /* Joy_Sample.m4a in Resources */,
 				F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */,
 				F80B4FF51DE411970025E0A7 /* hill_sample_perfect.mp3 in Resources */,
 				F80B4FE91DE408760025E0A7 /* EZAudio in Resources */,

@@ -27,7 +27,7 @@ if form.getvalue('file'):
 	with open(outpath, 'wb') as fout:
 		shutil.copyfileobj(audio_file.file, fout, 100000)
 
-	match_result = main_for_server('./uploads/testfile.m4a', './uploads/testfile.m4a')
+	match_result = main_for_server('./uploads/Joy_Mismatch.m4a', './uploads/Joy_Sample.m4a')
 	logging.debug(match_result)
 	result = dict()
 	result["matches"] = match_result

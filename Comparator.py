@@ -106,19 +106,29 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 
 	match_result.reverse()
 
-	start_index = 0
-	end_index = len(match_result) - 1
-	while start_index < len(match_result) and match_result[start_index] == 2:
-		start_index = start_index + 1
+	# This part needs some attention or fix
 
-	while end_index >= 0 and match_result[end_index] == 2:
-		end_index = end_index - 1
+	# start_index = 0
+	# end_index = len(match_result) - 1
+	# while start_index < len(match_result) and match_result[start_index] == 2:
+	# 	start_index = start_index + 1
 
-	return (result_matrix[height][width], match_result[start_index:end_index + 1])
+	# while end_index >= 0 and match_result[end_index] == 2:
+	# 	end_index = end_index - 1
+
+	actual_result = []
+	for m in match_result:
+		if m != 2:
+			actual_result.append(m)
+
+
+	# return (result_matrix[height][width], match_result)
+	# return (result_matrix[height][width], match_result[start_index:end_index + 1])
+	return (result_matrix[height][width], actual_result)
 
 def compare(source_frames, destination_frames, window, spectrum, pitch_yin_fft, \
 	        padding, gap_penalty, mismatch_penalty, display):
-	confidence_level = 0.7
+	confidence_level = 0.75
 	source_pitches = []
 	destination_pitches = []
 

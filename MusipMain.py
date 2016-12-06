@@ -42,7 +42,6 @@ def main_for_server(source, destination):
 def shared_main(source, dest, display_result):
 	source_audio = _loader(source)
 	destination_audio = _loader(dest)
-	destination_audio = destination_audio[1000:]
 
 	source_frame = FrameGenerator(source_audio, frameSize = 2048, hopSize = 512)
 	destination_frame = FrameGenerator(destination_audio, frameSize = 2048, hopSize = 512)

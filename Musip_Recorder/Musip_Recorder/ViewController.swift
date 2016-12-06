@@ -16,6 +16,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
     @IBOutlet var PlayButton: UIButton!
     @IBOutlet weak var UploadButton: UIButton!
     @IBOutlet weak var PauseButton: UIButton!
+    @IBOutlet weak var ScoreLabel: UILabel!
     
     var recorder : AVAudioRecorder!
     var player : AVAudioPlayer!
@@ -39,6 +40,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
             let second:SecondViewController = segue.destination as! SecondViewController
             second.match = matchResult
             second.url = getFileUrl()
+            second.length = Int32(matchResult.count)
         }
     }
     
@@ -168,10 +170,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                 // use the data later
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                 self.matchResult = json?["matches"] as! [Int]
+                var total = 0.0
+                var wrong = 0.0
+                for result in self.matchResult {
+                    if result != 0 {
+                        wrong = wrong + 1
+                    }
+                    total = total + 1
+                }
+                self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
             } catch {
                 print(error)
             }
-            
         }
         
         task.resume()

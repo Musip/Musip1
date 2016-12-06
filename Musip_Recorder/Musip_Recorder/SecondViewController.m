@@ -96,8 +96,9 @@ NSTimer *timer;
     /*
      Try opening the sample file
      */
-    // [self openFileWithFilePathURL:[NSURL fileURLWithPath:kAudioFileDefault]];
-    [self openFileWithFilePathURL:self.url];
+    [self openFileWithFilePathURL:[NSURL fileURLWithPath:kAudioFileDefault]];
+    
+    // [self openFileWithFilePathURL:self.url];
 }
 
 //------------------------------------------------------------------------------
@@ -227,7 +228,7 @@ NSTimer *timer;
     }
     else
     {
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(compareResult) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(compareResult) userInfo:nil repeats:YES];
         if (self.audioPlot.shouldMirror && (self.audioPlot.plotType == EZPlotTypeBuffer))
         {
             self.audioPlot.shouldMirror = NO;
@@ -240,7 +241,8 @@ NSTimer *timer;
 - (void)compareResult {
     int sliderValue = self.positionSlider.value;
     int maxValue = self.positionSlider.maximumValue;
-    int index = floor(6.0 * sliderValue / maxValue);
+    int length = self.length;
+    int index = floor((length - 1) * 1.0 * sliderValue / maxValue);
     NSLog(@"%i, slider value: %i, max value: %i", index, sliderValue, maxValue);
     if ([self.match[index]  isEqual: @0]) {
         self.audioPlot.color = [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1];

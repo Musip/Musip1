@@ -20,7 +20,7 @@
 //
 // Here's the default audio file included with the example
 //
-#define kAudioFileDefault [[NSBundle mainBundle] pathForResource:@"hill_sample_perfect" ofType:@"mp3"]
+#define kAudioFileDefault [[NSBundle mainBundle] pathForResource:@"Joy_Mismatch" ofType:@"m4a"]
 
 //------------------------------------------------------------------------------
 #pragma mark - SecondViewController
@@ -88,6 +88,11 @@
 // The audio file name to be played
 //
 @property (nonatomic) NSURL *url;
+
+//
+//
+//
+@property (nonatomic) int length;
 
 //------------------------------------------------------------------------------
 #pragma mark - Actions
