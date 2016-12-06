@@ -20,7 +20,7 @@
 //
 // Here's the default audio file included with the example
 //
-#define kAudioFileDefault [[NSBundle mainBundle] pathForResource:@"Joy_Mismatch" ofType:@"m4a"]
+#define kAudioFileDefault [[NSBundle mainBundle] pathForResource:@"Joy_Mismatch3" ofType:@"m4a"]
 
 //------------------------------------------------------------------------------
 #pragma mark - SecondViewController

@@ -28,6 +28,19 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpRecoeder()
+        var total = 0.0
+        var wrong = 0.0
+        if self.matchResult != nil {
+            for result in self.matchResult {
+                if result != 0 {
+                    wrong = wrong + 1
+                }
+                total = total + 1
+            }
+            self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
+        } else {
+            self.ScoreLabel.text = "0.0"
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -170,15 +183,18 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                 // use the data later
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                 self.matchResult = json?["matches"] as! [Int]
-                var total = 0.0
-                var wrong = 0.0
-                for result in self.matchResult {
-                    if result != 0 {
-                        wrong = wrong + 1
+                
+                if self.matchResult != nil {
+                    var wrong = 0.0
+                    var total = 0.0
+                    for result in self.matchResult {
+                        if result != 0 {
+                            wrong = wrong + 1
+                        }
+                        total = total + 1
                     }
-                    total = total + 1
+                    self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
                 }
-                self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
             } catch {
                 print(error)
             }
