@@ -21,6 +21,7 @@
 		7AE346ED1DF73F10001B3D5F /* Joy_Sample_3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346EC1DF73F04001B3D5F /* Joy_Sample_3.m4a */; };
 		7AE346EF1DF740DC001B3D5F /* Joy_Mismatch2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346EE1DF740CF001B3D5F /* Joy_Mismatch2.m4a */; };
 		7AE346F11DF74366001B3D5F /* Joy_Mismatch3.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346F01DF74352001B3D5F /* Joy_Mismatch3.m4a */; };
+		7AE346F31DF7B70D001B3D5F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AE346F21DF7B70D001B3D5F /* background.jpg */; };
 		F80B4FDC1DE406DB0025E0A7 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */; };
 		F80B4FE91DE408760025E0A7 /* EZAudio in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FE81DE408760025E0A7 /* EZAudio */; };
 		F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */ = {isa = PBXBuildFile; fileRef = F80B4FF21DE409FD0025E0A7 /* EZAudioiOS.framework */; };
@@ -81,6 +82,7 @@
 		7AE346EC1DF73F04001B3D5F /* Joy_Sample_3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Sample_3.m4a; sourceTree = "<group>"; };
 		7AE346EE1DF740CF001B3D5F /* Joy_Mismatch2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Mismatch2.m4a; sourceTree = "<group>"; };
 		7AE346F01DF74352001B3D5F /* Joy_Mismatch3.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Joy_Mismatch3.m4a; sourceTree = "<group>"; };
+		7AE346F21DF7B70D001B3D5F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		F80B4FDB1DE406DB0025E0A7 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		F80B4FDD1DE407250025E0A7 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		F80B4FE81DE408760025E0A7 /* EZAudio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EZAudio; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		7A8249371DCD2AA4005733A4 /* Musip_Recorder */ = {
 			isa = PBXGroup;
 			children = (
+				7AE346F21DF7B70D001B3D5F /* background.jpg */,
 				F80B4FF41DE411970025E0A7 /* hill_sample_perfect.mp3 */,
 				7AE346EA1DF73C57001B3D5F /* Joy_Sample_2.m4a */,
 				7AE346E21DF66D5D001B3D5F /* Joy_Add_One.m4a */,
@@ -299,6 +302,7 @@
 				7AE346E81DF67239001B3D5F /* Joy_Miss_One.m4a in Resources */,
 				7AE346E91DF67239001B3D5F /* Joy_Sample.m4a in Resources */,
 				F80B4FF31DE409FD0025E0A7 /* EZAudioiOS.framework in Resources */,
+				7AE346F31DF7B70D001B3D5F /* background.jpg in Resources */,
 				F80B4FF51DE411970025E0A7 /* hill_sample_perfect.mp3 in Resources */,
 				F80B4FE91DE408760025E0A7 /* EZAudio in Resources */,
 				7A8249401DCD2AA4005733A4 /* Assets.xcassets in Resources */,

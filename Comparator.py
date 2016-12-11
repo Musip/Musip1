@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import logging
 
 def draw_plot(frames, window, spectrum, pitch_yin_fft):
 	# index = 0
@@ -121,29 +122,38 @@ def sequence_alignment(array1, array2, padding, gap_penalty, mismatch_penalty):
 	return (result_matrix[height][width], match_result[start_index:end_index + 1])
 
 def compare(source_frames, destination_frames, window, spectrum, pitch_yin_fft, \
-	        padding, gap_penalty, mismatch_penalty, display):
+	        padding, gap_penalty, mismatch_penalty, display, loudness):
 	confidence_level = 0.75
+	loudness_threshold = 0.3
 	source_pitches = []
 	destination_pitches = []
 
 	# Extract pitches for each frame
 	for source_frame in source_frames:
+		l = loudness(source_frame)
 		source_spectrum = spectrum(window(source_frame))
 		source_pitch, source_pitch_confidence = pitch_yin_fft(source_spectrum)
 
 		if source_pitch_confidence < confidence_level:
 			source_pitches.append(0.0)
 		else:
-			source_pitches.append(source_pitch)
+			if l < loudness_threshold:
+				source_pitches.append(0.0)
+			else:
+				source_pitches.append(source_pitch)
 
 	for destination_frame in destination_frames:
+		l = loudness(destination_frame)
 		destination_spectrum = spectrum(window(destination_frame))
 		destination_pitch, destination_pitch_confidence = pitch_yin_fft(destination_spectrum)
 
 		if destination_pitch_confidence < confidence_level:
 			destination_pitches.append(0.0)
 		else:
-			destination_pitches.append(destination_pitch)
+			if l < loudness_threshold:
+				destination_pitches.append(0.0)
+			else:
+				destination_pitches.append(destination_pitch)
 
 	min_cost, match_result = sequence_alignment(source_pitches, destination_pitches, padding, \
 		                                        gap_penalty, mismatch_penalty)

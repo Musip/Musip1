@@ -1,5 +1,5 @@
 from essentia.standard import MonoLoader, FrameGenerator, Windowing, \
-Spectrum, PitchYinFFT, PitchSalience
+Spectrum, PitchYinFFT, PitchSalience, Loudness
 
 import essentia.streaming
 import argparse
@@ -50,10 +50,11 @@ def shared_main(source, dest, display_result):
 	spectrum = Spectrum()  # spectrum function
 	pitch_yin_fft = PitchYinFFT() # pitch extractor
 	pitch_saliennce = PitchSalience()
+	loudness = Loudness()
 
 	# draw_plot(source_frame, window, spectrum, pitch_yin_fft)
 	min_cost, match_result = compare(source_frame, destination_frame, window, \
-		                             spectrum, pitch_yin_fft, 10, 1, 1, display_result)
+		                             spectrum, pitch_yin_fft, 5, 1, 1, display_result, loudness)
 
 	return min_cost, match_result
 

@@ -10,37 +10,62 @@ import UIKit
 import AVFoundation
 import AudioKit
 
-class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var RecordButton: UIButton!
     @IBOutlet var PlayButton: UIButton!
     @IBOutlet weak var UploadButton: UIButton!
     @IBOutlet weak var PauseButton: UIButton!
     @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var ShowButton: UIButton!
+    
+    @IBOutlet weak var ReferencePicker: UIPickerView!
+    var reference = ["Ode to Joy"]
+    var selectedReference : String = ""
+    
+    private var blocker = UIView()
     var recorder : AVAudioRecorder!
     var player : AVAudioPlayer!
     var fileName = "audioFile.m4a"
     var osi = AKOscillator()
     var matchResult : [Int]!
+    var scores : Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setUpRecoeder()
-        var total = 0.0
-        var wrong = 0.0
-        if self.matchResult != nil {
-            for result in self.matchResult {
-                if result != 0 {
-                    wrong = wrong + 1
-                }
-                total = total + 1
-            }
-            self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
+        
+        self.ActivityIndicator.hidesWhenStopped = true
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+        
+        if self.scores != nil {
+            self.ScoreLabel.text = String(format:"%.2f", self.scores)
         } else {
             self.ScoreLabel.text = "0.0"
         }
+        
+        self.ReferencePicker.delegate = self
+        self.ReferencePicker.dataSource = self
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.reference.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return self.reference[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedReference = self.reference[row]
     }
     
     override func didReceiveMemoryWarning() {
@@ -145,10 +170,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         let request = NSMutableURLRequest(url:destURL! as URL);
         request.httpMethod = "POST";
         
+        
+        
         let param = [
             "firstName"  : "Haoming",
             "lastName"    : "Liu",
-            "userId"    : "0"
+            "userId"    : "0",
+            "reference" : self.selectedReference
         ]
         
         let boundary = generateBoundaryString()
@@ -163,6 +191,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         }
         
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "file", audioDataKey: audioData!, boundary: boundary) as Data
+        
+        ActivityIndicator.startAnimating()
+        self.disableAllButtons()
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
@@ -184,17 +215,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                 self.matchResult = json?["matches"] as! [Int]
                 
-                if self.matchResult != nil {
-                    var wrong = 0.0
-                    var total = 0.0
-                    for result in self.matchResult {
-                        if result != 0 {
-                            wrong = wrong + 1
-                        }
-                        total = total + 1
-                    }
-                    self.ScoreLabel.text = String(format:"%.2f", (total - wrong) / total * 100)
-                }
+                self.scores = json?["scores"] as! Double
+                self.ScoreLabel.text = String(format:"%.2f", self.scores)
+                
+                self.ActivityIndicator.stopAnimating()
+                self.enableAllButtons()
+                
             } catch {
                 print(error)
             }
@@ -232,6 +258,22 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
         body.appendString(string: "--\(boundary)--\r\n")
         
         return body
+    }
+    
+    func disableAllButtons() {
+        self.RecordButton.isEnabled = false
+        self.PlayButton.isEnabled = false
+        self.UploadButton.isEnabled = false
+        self.PauseButton.isEnabled = false
+        self.ShowButton.isEnabled = false
+    }
+    
+    func enableAllButtons() {
+        self.RecordButton.isEnabled = true
+        self.PlayButton.isEnabled = true
+        self.UploadButton.isEnabled = true
+        self.PauseButton.isEnabled = true
+        self.ShowButton.isEnabled = true
     }
 }
 

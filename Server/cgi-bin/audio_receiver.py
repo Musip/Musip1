@@ -20,17 +20,24 @@ form = cgi.FieldStorage()
 
 if form.getvalue('file'):
 	audio_file = form['file']
-	# logging.debug(dir(form))
-	# logging.debug(dir(audio_file))
 	outpath = os.path.join(UPLOAD_DIR, 'testfile.m4a')
 
 	with open(outpath, 'wb') as fout:
 		shutil.copyfileobj(audio_file.file, fout, 100000)
 
 	match_result = main_for_server('./uploads/Joy_Mismatch3.m4a', './uploads/Joy_Sample_2.m4a')
+
+	wrong = 0.0
+	total = 0.0
+	for match in match_result:
+		if match != 0:
+			wrong = wrong + 1
+		total = total + 1
+
 	logging.debug(match_result)
 	result = dict()
 	result["matches"] = match_result
+	result["scores"] = (total - wrong) / total * 100.0
 	print json.dumps(result)
 	logging.debug(json.dumps(result))
 	logging.debug('success')
